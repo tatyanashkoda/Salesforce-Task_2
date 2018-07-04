@@ -1,0 +1,26 @@
+<apex:page controller="CustomerAndAccountController" >
+    <apex:form >
+        <apex:pageBlock title="Create customer">
+        <apex:pageMessages />
+            <apex:pageBlockSection >
+                <apex:inputField value="{!Account.name}"/><br />
+                <apex:inputField value="{!Account.phone}"/><br />
+                <apex:inputField value="{!Account.Email__c}"/><br />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!saveCustomer}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pageBlock title="Create customer">
+            <apex:pageMessages />
+            <apex:pageBlockSection >
+                <apex:inputField value="{!Customer.name}"/><br />
+                <apex:inputField value="{!Customer.Balance__c}"/><br />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!saveCustomerAccount}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+       
+    </apex:form>
+</apex:page>

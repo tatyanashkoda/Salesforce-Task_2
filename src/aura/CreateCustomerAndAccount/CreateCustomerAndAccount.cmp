@@ -1,0 +1,22 @@
+<aura:component controller="ContactController"
+    implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="newContact" type="Contact"
+        default="{ 'sobjectType': 'Contact' }" /> 
+    <aura:attribute name="customer" type="Customer_Account__c" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="slds-page-header" role="banner">
+        <h1 class="slds-page-header__title slds-m-right_small
+            slds-truncate slds-align-left">Create New Customer</h1>
+    </div>
+        
+    <lightning:input aura:id="contactField" name="lastname" label="Name"
+                     value="{!v.customer.Name}" required="true"/>
+          
+    <lightning:button label="Save Customer" onclick="{!c.handleSaveContact}"
+               variant="brand" class="slds-m-top_medium"/>
+    
+</aura:component>
