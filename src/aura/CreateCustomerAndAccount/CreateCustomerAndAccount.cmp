@@ -1,22 +1,40 @@
-<aura:component controller="ContactController"
+<aura:component controller="CreateCustomerAccountWithCustomer"
     implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,flexipage:availableForAllPageTypes">
-
-    <aura:attribute name="account" type="Account" />
-    <aura:attribute name="newContact" type="Contact"
-        default="{ 'sobjectType': 'Contact' }" /> 
-    <aura:attribute name="customer" type="Customer_Account__c" />
+	
+    
+    <aura:attribute name="customers" type="Account[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="newCustomer" type="Account"
+        default="{ 'sobjectType': 'Account',
+                   'Name': ''}" /> 
+        <aura:attribute name="newAccount" type="Customer_Account__c"
+        default="{ 'sobjectType': 'Customer_Account__c',
+                   'Name': '',
+                   'Balance__c':0}" />
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-
-    <div class="slds-page-header" role="banner">
-        <h1 class="slds-page-header__title slds-m-right_small
-            slds-truncate slds-align-left">Create New Customer</h1>
-    </div>
-        
-    <lightning:input aura:id="contactField" name="lastname" label="Name"
-                     value="{!v.customer.Name}" required="true"/>
-          
-    <lightning:button label="Save Customer" onclick="{!c.handleSaveContact}"
-               variant="brand" class="slds-m-top_medium"/>
-    
+	<div class="slds-col slds-col--padded slds-p-top--large">
+        <div aria-labelledby="newCampaingForm">
+            <fieldset class="slds-box slds-theme--default slds-container--small">
+                <legend id="newCampaingForm" class="slds-text-heading--small
+                    slds-p-vertical--medium">
+                    Add Customer
+                </legend>
+                <form class="slds-form--stacked">
+                    <lightning:input value="{!v.newCustomer.Name}" 
+                                     aura:id="name" 
+                                     label="Customer Name"                                    
+                                     required="true"
+                                     />
+                     <lightning:button label="Create Customer"
+                        class="slds-m-top--medium"
+                        variant="brand"
+                        onclick="{!c.clickCreateCustomer}"
+                     />
+                                       <br/>
+                </form>
+            </fieldset>
+        </div>
+    </div>   
+    <c.CreateCustomerAccount/>
 </aura:component>
