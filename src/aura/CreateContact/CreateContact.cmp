@@ -1,0 +1,32 @@
+<aura:component controller="ContactController"
+    implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,flexipage:availableForAllPageTypes">
+    <aura:attribute name="newCustomer" type="Account"
+        default="{ 'sobjectType': 'Account',
+                   'Name': ''}" /> 
+    <aura:attribute name="newContact" type="Contact"
+                    default="{ 'sobjectType': 'Contact' }"/>
+	<div class="slds-col slds-col--padded slds-p-top--large">
+        <div aria-labelledby="newCampaingForm">
+            <fieldset class="slds-box slds-theme--default slds-container--small">
+                <legend id="newCampaingForm" class="slds-text-heading--small
+                    slds-p-vertical--medium">
+                    Add Private Customer
+                </legend>
+                <form class="slds-form--stacked">
+ <lightning:input aura:id="contactField" name="firstName" label="First Name"
+                      value="{!v.newContact.FirstName}" required="true"/>
+  
+    <lightning:input aura:id="contactField" name="lastname" label="Last Name"
+                     value="{!v.newContact.LastName}" required="true"/>
+                    
+                     <lightning:button label="Create Countact"
+                        class="slds-m-top--medium"
+                        variant="brand"
+                        onclick="{!c.clickCreatePrivateCustomer}"
+                     />
+                    <br/>
+                </form>
+            </fieldset>
+        </div>
+    </div>   
+</aura:component>

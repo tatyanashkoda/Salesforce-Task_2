@@ -1,0 +1,7 @@
+<aura:component >
+	
+    <aura:attribute name="customer" type="Account"/>
+ 
+    Name:
+    <ui:outputText value="{!v.customer.Name}"/>
+</aura:component>
