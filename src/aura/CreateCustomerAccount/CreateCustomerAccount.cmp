@@ -1,0 +1,38 @@
+<aura:component controller="ContactController"
+    implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,flexipage:availableForAllPageTypes">
+<aura:attribute name="newCustomerAccount" type="Customer_Account__c"
+        default="{ 'sobjectType': 'Customer_Account__c',
+                   'Name': '',
+                   'Balance__c':0}" />
+	<div class="slds-col slds-col--padded slds-p-top--large">
+        <div aria-labelledby="newCampaingForm">
+            <fieldset class="slds-box slds-theme--default slds-container--small">
+                <legend id="newCampaingForm" class="slds-text-heading--small
+                    slds-p-vertical--medium">
+                    Add Customer Account
+                </legend>
+                <form class="slds-form--stacked">
+                    <lightning:input value="{!v.newCustomerAccount.Name}" 
+                                     aura:id="name" 
+                                     label="Account Number"                                    
+                                     required="true"
+                                     />
+                    <lightning:input type="number" 
+                                     aura:id="campingform" 
+                                     value="{!v.newCustomerAccount.Balance__c}"
+                                     label="Balance"
+                                     min="0.1"
+                                     formatter="currency"
+                                     step="0.1"
+                                     currencyCode="USD"/>
+                     <lightning:button label="Create Customer"
+                        class="slds-m-top--medium"
+                        variant="brand"
+                        onclick="{!c.clickCreateAccountCustomer}"
+                     />
+                                       <br/>
+                </form>
+            </fieldset>
+        </div>
+    </div>   
+</aura:component>
