@@ -116,12 +116,14 @@
         <members>ExchangeUserMapping</members>
         <members>FeedItem</members>
         <members>ForecastingCategoryMapping</members>
+        <members>Goal</members>
         <members>Idea</members>
         <members>Lead</members>
         <members>LeadCleanInfo</members>
         <members>Macro</members>
         <members>MacroAction</members>
         <members>MacroInstruction</members>
+        <members>Metric</members>
         <members>Opportunity</members>
         <members>OpportunityCompetitor</members>
         <members>OpportunityContactRole</members>
