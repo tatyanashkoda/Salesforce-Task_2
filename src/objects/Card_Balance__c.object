@@ -63,7 +63,7 @@
     <fields>
         <fullName>Balance__c</fullName>
         <externalId>false</externalId>
-        <formula>Customer_Account__r.Balance__c</formula>
+        <formula>Customer_Account__r.Balance_Account__c</formula>
         <label>Balance</label>
         <precision>18</precision>
         <required>false</required>

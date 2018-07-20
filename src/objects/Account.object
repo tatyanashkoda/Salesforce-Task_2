@@ -153,6 +153,15 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Difference_Between_Balances__c</fullName>
+        <externalId>false</externalId>
+        <label>Difference Between Balances</label>
+        <summarizedField>Customer_Account__c.Balance_Account__c</summarizedField>
+        <summaryForeignKey>Customer_Account__c.Customer__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>DunsNumber</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>

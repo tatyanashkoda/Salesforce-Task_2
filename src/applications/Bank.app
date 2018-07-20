@@ -5,8 +5,6 @@
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
     <formFactors>Large</formFactors>
-    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
-    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Bank</label>
     <navType>Standard</navType>
     <tabs>standard-Contact</tabs>
@@ -15,6 +13,7 @@
     <tabs>Card_Balance__c</tabs>
     <tabs>Parties__c</tabs>
     <tabs>Transaction__c</tabs>
+    <tabs>create</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Bank_UtilityBar</utilityBar>
 </CustomApplication>

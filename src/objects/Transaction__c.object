@@ -54,15 +54,16 @@
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Customer_Account__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
         <label>Customer Account</label>
         <referenceTo>Customer_Account__c</referenceTo>
         <relationshipLabel>Transactions</relationshipLabel>
         <relationshipName>Transactions</relationshipName>
-        <required>true</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Number_Account__c</fullName>
@@ -87,6 +88,22 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>This_Month__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND( 
+DATEVALUE(CreatedDate ) &gt;= DATE(YEAR(TODAY()),MONTH(TODAY()),1), 
+DATEVALUE(CreatedDate ) &lt;= DATE(YEAR(TODAY()),MONTH(TODAY()), 31) 
+),1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>This Month</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Transaction_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Transaction Amount</label>
@@ -103,11 +120,12 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <displayFormat>TN-{0000}</displayFormat>
         <label>Transaction Number</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Transactions</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

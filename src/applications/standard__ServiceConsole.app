@@ -160,8 +160,6 @@
         <listRefreshMethod>none</listRefreshMethod>
     </consoleConfig>
     <defaultLandingTab>standard-home</defaultLandingTab>
-    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
-    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <isServiceCloudConsole>true</isServiceCloudConsole>
     <preferences>
         <enableCustomizeMyTabs>false</enableCustomizeMyTabs>
@@ -179,7 +177,11 @@
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
+    <tabs>create</tabs>
     <workspaceConfig>
+        <mappings>
+            <tab>create</tab>
+        </mappings>
         <mappings>
             <tab>standard-Account</tab>
         </mappings>

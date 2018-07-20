@@ -3,14 +3,16 @@
  */
 
 public class AccountChangeTriggerHandler extends TriggerHandler{
+/*
 
+    Set<Id> allInsertedIds = trigger.newMap.keySet();
 
     protected override void afterInsert() {
         UpdateBalance();
     }
 
     private void UpdateBalance(){
-        Set<Id> allInsertedIds = trigger.newMap.keySet();
+
         Transaction__c CustomerAccount = [SELECT Customer_Account__c, Transaction_Amount__c From Transaction__c where Id =: allInsertedIds];
         Customer_Account__c objAccount = [Select Id, Balance__c, Current_Balance__c From Customer_Account__c where Id =: CustomerAccount.Customer_Account__c];
 
@@ -19,5 +21,5 @@ public class AccountChangeTriggerHandler extends TriggerHandler{
         update objAccount;
 
     }
-
+*/
 }

@@ -57,7 +57,42 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Amount_per_Month_on_credit_account__c</fullName>
+        <externalId>false</externalId>
+        <formula>( Balance_Account__c   / Number_of_Months__c) + ( fixed_rate__c / Number_of_Months__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Amount per Month on credit account</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Amount_per_month_on_debit_account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Balance_Account__c  * fixed_rate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Amount per Month on debit account</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Balance_Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Balance</label>
+        <summarizedField>Transaction__c.Transaction_Amount__c</summarizedField>
+        <summaryForeignKey>Transaction__c.Customer_Account__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Balance__c</fullName>
+        <defaultValue>0</defaultValue>
         <externalId>false</externalId>
         <label>Balance</label>
         <precision>18</precision>
@@ -76,15 +111,41 @@
     </fields>
     <fields>
         <fullName>Customer__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
         <label>Customer</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Customer Accounts</relationshipLabel>
         <relationshipName>Customer_Accounts</relationshipName>
-        <required>true</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Number_of_Months__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+( Close_Data__c  -  TODAY() ) / 365 * 12 &lt; 1, 1, (Close_Data__c  -  TODAY()) / 365 * 12
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fixed_rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Fixed Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
     </fields>
     <label>Customer Account</label>
     <listViews>
@@ -108,6 +169,6 @@
         <label>Deposit</label>
     </recordTypes>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
